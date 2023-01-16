@@ -1,0 +1,112 @@
+/* Author: Justine George */
+
+.not-selectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@font-face {
+    font-family: 'Timer-Font';
+    src: url("../assets/fonts/CursedTimerUlil-Aznm.ttf");
+}
+
+* {
+    font-size: 100%;
+}
+
+.timer-font {
+    font-family: 'Timer-Font', Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #1B244A;
+    background-image: linear-gradient(115deg,
+            #1f2f75d2,
+            #9abcd8a6
+            /* #f0afbb86 */
+            ),
+        url("../assets/images/basketball.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #182042f5;
+    color: #EEEEEE;
+    margin: 50px auto;
+    padding-top: 40px;
+    max-width: 500px;
+    min-width: fit-content;
+    border-radius: 15px;
+}
+
+.score-board {
+    display: flex;
+    border-radius: 15px;
+    background-color: #080001;
+    justify-content: right;
+    align-items: center;
+    color: #F94F6D;
+    padding: 10px 10px 0 0;
+    width: 120px;
+    height: 80px;
+    font-size: 4rem;
+    border: 5px solid black;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.top-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+h3 {
+    margin: 50px auto 21px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.btn-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    border: 1px solid #9AABD8;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn>span {
+    font-size: 1rem;
+}
+
+.bottom-container {
+    margin: 100px 0 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.reset-btn {
+    display: flex;
+    padding: 12px 10px 10px;
+    border: 1px solid #9AABD8;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.25s ease-out;
+    cursor: pointer;
+}
