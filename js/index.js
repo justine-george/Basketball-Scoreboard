@@ -26,61 +26,50 @@ gScoreBoard.textContent = gScore;
 // click event listeners
 hAdd1El.addEventListener("click", () => {
     hScore += 1;
-    updateHScoreBoard(hScore);
+    updateScoreOnBoard(hScoreBoard, hScore);
 });
 hAdd2El.addEventListener("click", () => {
     hScore += 2;
-    updateHScoreBoard(hScore);
+    updateScoreOnBoard(hScoreBoard, hScore);
 });
 hAdd3El.addEventListener("click", () => {
     hScore += 3;
-    updateHScoreBoard(hScore);
+    updateScoreOnBoard(hScoreBoard, hScore);
 });
 gAdd1El.addEventListener("click", () => {
     gScore += 1;
-    updateGScoreBoard(gScore);
+    updateScoreOnBoard(gScoreBoard, gScore);
 });
 gAdd2El.addEventListener("click", () => {
     gScore += 2;
-    updateGScoreBoard(gScore);
+    updateScoreOnBoard(gScoreBoard, gScore);
 });
 gAdd3El.addEventListener("click", () => {
     gScore += 3;
-    updateGScoreBoard(gScore);
+    updateScoreOnBoard(gScoreBoard, gScore);
 });
 resetBtn.addEventListener("click", () => {
     hScore = gScore = 0;
-    updateHScoreBoard(hScore);
-    updateGScoreBoard(gScore);
+    updateScoreOnBoard(hScoreBoard, hScore);
+    updateScoreOnBoard(gScoreBoard, gScore);
 });
 
 // helper functions
-function updateHScoreBoard(score) {
-    hScoreBoard.textContent = score;
-    updateWinner();
+function updateScoreOnBoard(container, score) {
+    container.textContent = score;
+    updateWinnerStyling();
 }
-function updateGScoreBoard(score) {
-    gScoreBoard.textContent = score;
-    updateWinner();
-}
-function updateWinner() {
+function updateWinnerStyling() {
     if (hScore > gScore) {
-        updateHScoreBoardStyle("5px solid rgb(128, 231, 159)", "0px 0px 5px rgb(107, 218, 140)");
-        updateGScoreBoardStyle("5px solid black", "none");
-
+        if (!hScoreboardContainer.classList.contains("winner-scoreboard"))
+            hScoreboardContainer.classList.add("winner-scoreboard");
+        gScoreboardContainer.classList.remove("winner-scoreboard");
     } else if (hScore < gScore) {
-        updateHScoreBoardStyle("5px solid black", "none");
-        updateGScoreBoardStyle("5px solid rgb(128, 231, 159)", "0px 0px 5px rgb(107, 218, 140)");
+        if (!gScoreboardContainer.classList.contains("winner-scoreboard"))
+            gScoreboardContainer.classList.add("winner-scoreboard");
+        hScoreboardContainer.classList.remove("winner-scoreboard");
     } else {
-        updateHScoreBoardStyle("5px solid black", "none");
-        updateGScoreBoardStyle("5px solid black", "none");
+        hScoreboardContainer.classList.remove("winner-scoreboard");
+        gScoreboardContainer.classList.remove("winner-scoreboard");
     }
-}
-function updateHScoreBoardStyle(border, boxShadow) {
-    hScoreboardContainer.style.border = border;
-    hScoreboardContainer.style.boxShadow = boxShadow;
-}
-function updateGScoreBoardStyle(border, boxShadow) {
-    gScoreboardContainer.style.border = border;
-    gScoreboardContainer.style.boxShadow = boxShadow;
 }

@@ -1,5 +1,4 @@
 /* Author: Justine George */
-
 .not-selectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -9,9 +8,26 @@
     user-select: none;
 }
 
+:root {
+    --body-background-color: #1B244A;
+    --body-gradient-color-one: #1f2f75d2;
+    --body-gradient-color-two: #9abcd8a6; /* #f0afbb86 */
+
+    --container-background-color: #182042f5;
+    --container-color: #EEEEEE;
+
+    --score-board-color: #F94F6D;
+    --score-board-background-color: #080001;
+    --winner-scoreboard-border-color: #80e79f;
+    --winner-scoreboard-boxshadow-color: #6bda8c;
+
+    --button-border-color: #9AABD8;
+}
+
 @font-face {
     font-family: 'Timer-Font';
     src: url("../assets/fonts/CursedTimerUlil-Aznm.ttf");
+    font-display: swap;
 }
 
 * {
@@ -25,13 +41,8 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #1B244A;
-    background-image: linear-gradient(115deg,
-            #1f2f75d2,
-            #9abcd8a6
-            /* #f0afbb86 */
-            ),
-        url("../assets/images/basketball.png");
+    background-color: var(--body-background-color);
+    background-image: linear-gradient(115deg, var(--body-gradient-color-one), var(--body-gradient-color-two)), url("../assets/images/basketball.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -39,8 +50,8 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    background-color: #182042f5;
-    color: #EEEEEE;
+    background-color: var(--container-background-color);
+    color: var(--container-color);
     margin: 50px auto;
     padding-top: 40px;
     max-width: 500px;
@@ -51,17 +62,22 @@ body {
 .score-board {
     display: flex;
     border-radius: 15px;
-    background-color: #080001;
+    background-color: var(--score-board-background-color);
     justify-content: right;
     align-items: center;
-    color: #F94F6D;
+    color: var(--score-board-color);
     padding: 10px 10px 0 0;
     width: 120px;
     height: 80px;
     font-size: 4rem;
-    border: 5px solid black;
     transition: border 0.2s ease, box-shadow 0.2s ease;
     margin-bottom: 20px;
+    border: 5px solid black;
+    box-shadow: none;
+}
+.winner-scoreboard {
+    border: 5px solid var(--winner-scoreboard-border-color);
+    box-shadow: 0px 0px 5px var(--winner-scoreboard-boxshadow-color);
 }
 
 .top-container {
@@ -84,7 +100,7 @@ h3 {
 
 .btn {
     display: flex;
-    border: 1px solid #9AABD8;
+    border: 1px solid var(--button-border-color);
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -103,7 +119,7 @@ h3 {
 .reset-btn {
     display: flex;
     padding: 12px 10px 10px;
-    border: 1px solid #9AABD8;
+    border: 1px solid var(--button-border-color);
     border-radius: 5px;
     align-items: center;
     justify-content: center;
