@@ -15,9 +15,9 @@ let gScoreBoard = document.getElementById('g-scoreboard');
 
 let resetBtn = document.getElementById('newgame-btn-container');
 
-// variables to keep track of scores
-let hScore = parseInt(localStorage.getItem("hScore")) ?? 0;
-let gScore = parseInt(localStorage.getItem("gScore")) ?? 0;
+// variables to keep track of scores, save to localStorage to remember scores on refresh
+let hScore = parseInt(localStorage.getItem("hScore") ?? 0);
+let gScore = parseInt(localStorage.getItem("gScore") ?? 0);
 
 // display initial scores as zero
 hScoreBoard.textContent = hScore;
