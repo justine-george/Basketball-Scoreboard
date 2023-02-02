@@ -22,6 +22,7 @@ let gScore = parseInt(localStorage.getItem("gScore")) ?? 0;
 // display initial scores as zero
 hScoreBoard.textContent = hScore;
 gScoreBoard.textContent = gScore;
+updateWinnerStyling();
 
 // click event listeners
 hAdd1El.addEventListener("click", () => {
