@@ -16,8 +16,8 @@ let gScoreBoard = document.getElementById('g-scoreboard');
 let resetBtn = document.getElementById('newgame-btn-container');
 
 // variables to keep track of scores
-let hScore = 0;
-let gScore = 0;
+let hScore = localStorage.getItem("hScore") ?? 0;
+let gScore = localStorage.getItem("gScore") ?? 0;
 
 // display initial scores as zero
 hScoreBoard.textContent = hScore;
@@ -57,6 +57,8 @@ resetBtn.addEventListener("click", () => {
 // helper functions
 function updateScoreOnBoard(container, score) {
     container.textContent = score;
+    localStorage.setItem("hScore", hScore);
+    localStorage.setItem("gScore", gScore);
     updateWinnerStyling();
 }
 function updateWinnerStyling() {
